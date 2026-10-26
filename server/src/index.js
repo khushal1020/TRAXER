@@ -391,5 +391,8 @@ export function createApp({ database } = {}) {
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const app = createApp();
   const port = Number(process.env.PORT || 4000);
-  app.listen(port, '127.0.0.1', () => console.log(`Traxer API ready at http://127.0.0.1:${port}`));
+
+  app.listen(port, '0.0.0.0', () => {
+    console.log(`Traxer API ready on port ${port}`);
+  });
 }
